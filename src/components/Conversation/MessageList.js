@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import { useChatContext } from "../../contexts/ChatProvider";
+import { useScrollToBottom } from "../../hooks/useScrollToBottom";
 
 function MessageList() {
   const { selectedChat } = useChatContext();
+
+  useScrollToBottom(selectedChat, "chat-messages");
 
   useEffect(() => {
     selectedChat.messages.map((m) => {
