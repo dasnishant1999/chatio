@@ -25,26 +25,28 @@ function SignUp() {
         seterror("");
         setloading(true);
         const userName = userNameRef.current.value;
+        const email = emailRef.current.value;
         const res = await signup(
           emailRef.current.value,
           passwordRef.current.value
         );
 
         if (res?.user?.uid) {
-          fetch("/api/createUser", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              userName: userName,
-              userId: res.user.uid,
-            }),
-          })
-            .then(() => {
-              db.collection("chatUsers")
-                .doc(res.user.uid)
-                .set({ avatar: "", userName: userName });
-            })
-            .catch((err) => console.log("Something went wrong", err));
+          try {
+            await fetch("/api/createUser", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                userName: userName,
+                userId: res.user.uid,
+              }),
+            });
+            db.collection("chatUsers")
+              .doc(res.user.uid)
+              .set({ avatar: "", userName: userName, email: email });
+          } catch (err) {
+            console.log("Something went wrong", err);
+          }
         } else {
           console.log("Something went wrong");
         }
