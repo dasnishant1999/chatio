@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useAuth } from "../../contexts/AuthProvider";
 import { useChatContext } from "../../contexts/ChatProvider";
 import { notMe } from "../../helpers";
 
 function Chatlist() {
-  const { myChats, selectedChat, selectChat ,chatConfig} = useChatContext();
+  const { myChats, selectedChat, selectChat, chatConfig } = useChatContext();
   const { currentUser } = useAuth();
 
   return (
@@ -12,7 +12,7 @@ function Chatlist() {
       {myChats.length ? (
         <div className="chat-list-container">
           {myChats.map((chat) => {
-            let notMeUserName = notMe(chatConfig,chat)
+            let notMeUserName = notMe(chatConfig, chat);
             return (
               <div
                 key={chat.id}

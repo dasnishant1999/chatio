@@ -59,8 +59,15 @@ function CreateAccountModal() {
       >
         <Modal.Header>Add Contact</Modal.Header>
         <Modal.Content>
-          <input type="text" ref={emailRef} placeholder="Enter email" />
-          {error && <p>{error}</p>}
+          <div className="chat-controls">
+            <input
+              type="text"
+              ref={emailRef}
+              className="chat-input"
+              placeholder="Enter email of user you want to chat with"
+            />
+          </div>
+          {error && <p style={{color:'red'}} >{error}</p>}
         </Modal.Content>
         <Modal.Actions>
           <Button

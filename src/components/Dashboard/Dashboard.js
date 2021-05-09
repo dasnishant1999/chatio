@@ -6,7 +6,6 @@ import Conversation from "../Conversation/Conversation";
 import Sidebar from "../Sidebar/Sidebar";
 
 function Dashboard() {
-  const { currentUser, logout } = useAuth();
   const {
     myChats,
     setmyChats,
@@ -69,9 +68,7 @@ function Dashboard() {
           )}
         </div>
       </div>
-      {/*             
-      <h2>{currentUser.email}</h2>
-      <button onClick={logout}>logout</button> */}
+      
     </>
   );
 }

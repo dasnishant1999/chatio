@@ -3,7 +3,7 @@
   width: 25%;
   padding: 0rem 1.5rem;
   border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
+  border-radius: 0.2rem;
 }
 
 .sign-up h1 {
@@ -15,7 +15,7 @@
   width: 100%;
   height: 2rem;
   box-sizing: border-box;
-  border: 1px solid #9ca3af;
+  border: 1px solid #0084ff;
   border-radius: 5px;
   padding: 0 10px;
 }
@@ -28,7 +28,7 @@
 .sign-up button {
   width: 100%;
   margin: 1.5rem 0;
-  background-color: #8b5cf6;
+  background-color: #1877f2;
   color: white;
   border: none;
   height: 30px;

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { Loader } from "semantic-ui-react";
 import { useAuth } from "../../contexts/AuthProvider";
 
 import "./Styles.css";
@@ -38,7 +39,11 @@ function SignUp() {
         <input type="text" ref={emailRef} />
         <p className="details">Password</p>
         <input type="password" ref={passwordRef} />
-        <button disabled={loading}>{loading ? "loading..." : " Login"}</button>
+        {loading ? (
+          <Loader active size="mini" />
+        ) : (
+          <button disabled={loading}>Login</button>
+        )}
         <p id="login-redirect">
           Dont' have an account?<Link to="/signup">Sign Up</Link>
         </p>

@@ -17,7 +17,7 @@ function MessageList() {
 
   return (
     <div className="chat-messages">
-      {true ? (
+      {selectedChat.messages.length ? (
         selectedChat.messages.map((m, index) => {
           return (
             <div key={index} className="chat-message">

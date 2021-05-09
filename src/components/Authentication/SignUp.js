@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { Loader } from "semantic-ui-react";
 import { db } from "../../config/firebase";
 import { useAuth } from "../../contexts/AuthProvider";
 
@@ -74,9 +75,11 @@ function SignUp() {
         <input type="password" ref={passwordRef} />
         <p className="details">Confirm Password</p>
         <input type="password" ref={confirmPasswordRef} />
-        <button disabled={loading}>
-          {loading ? "loading..." : " Sign up"}
-        </button>
+        {loading ? (
+          <Loader active size="mini" />
+        ) : (
+          <button disabled={loading}>Sign Up</button>
+        )}
         <p id="login-redirect">
           Already have an account?<Link to="/signin">Log in</Link>
         </p>

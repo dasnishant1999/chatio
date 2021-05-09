@@ -17,7 +17,9 @@ function AuthProvider({ children }) {
       setloading(false);
     });
 
-    return unsub;
+    return () => {
+      unsub();
+    };
   }, []);
 
   const signup = (email, password) => {
