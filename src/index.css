@@ -67,26 +67,15 @@ code {
 .chat-list-item:hover {
   background-color: #18181d;
 }
-.chat-list-avatar {
-  width: 28px;
-  height: 28px;
-  border-radius: 100%;
-}
+
 .selected-chat-item {
   background-color: #18181d;
 }
-.chat-item-delete {
-  width: 35px;
-  cursor: pointer;
-  text-align: right;
-  visibility: hidden;
-}
-.chat-list-item:hover .chat-item-delete {
+
+.chat-list-item:hover {
   visibility: visible;
 }
-.chat-item-delete:hover {
-  color: #cd0000;
-}
+
 .chat-list-preview {
   margin-left: 10px;
 }
@@ -100,23 +89,7 @@ code {
   border-radius: 0px;
   background-color: #21ba45;
 }
-.preview-message {
-  font-size: 12px;
-}
-.empty-avatar {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  font-size: 24px;
-  align-items: center;
-  border-radius: 100%;
-  justify-content: center;
-  background-color: #4d515d;
-}
-.left-rail-header .empty-avatar {
-  width: 50px;
-  height: 50px;
-}
+
 .chats-loading {
   height: 100%;
   position: relative;
@@ -219,7 +192,7 @@ code {
 }
 .chat-message {
   display: flex;
-  margin-top: 25px;
+  margin-top: 5px;
   flex-direction: column;
 }
 .message-image {
@@ -241,15 +214,37 @@ code {
   margin-bottom: 15px;
   align-items: center;
 }
-.message-author {
-  font-size: 24px;
+
+.message {
+  display: inline-block;
+  max-width: 60%;
+  width: auto;
+  background-color: #0084ff;
+  color: white;
 }
-.message-content {
-  padding-left: 25px;
+
+.message > p {
+  font-size: 16px;
+  word-break: break-all;
+  padding: 5px 10px;
 }
-.message-text {
-  font-size: 14px;
-  margin-bottom: 10px;
+
+.recieve {
+  display: flex;
+}
+
+.sent {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.sent-color {
+  background-color: #0084ff;
+  border-radius: 10px 10px 0px 10px;
+}
+.recieve-color {
+  background-color: #4c4c6a;
+  border-radius: 0px 10px 10px 10px;
 }
 .chat-controls {
   width: 100%;

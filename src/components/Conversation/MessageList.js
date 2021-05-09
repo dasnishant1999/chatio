@@ -3,13 +3,13 @@ import { useChatContext } from "../../contexts/ChatProvider";
 import { useScrollToBottom } from "../../hooks/useScrollToBottom";
 
 function MessageList() {
-  const { selectedChat } = useChatContext();
+  const { selectedChat, chatConfig } = useChatContext();
 
   useScrollToBottom(selectedChat, "chat-messages");
 
   useEffect(() => {
     selectedChat.messages.map((m) => {
-      // console.log(m)
+      console.log(typeof m.text);
     });
 
     return () => {};
@@ -19,13 +19,15 @@ function MessageList() {
     <div className="chat-messages">
       {selectedChat.messages.length ? (
         selectedChat.messages.map((m, index) => {
+          const sender = m.sender.username;
+          const myUsername = chatConfig.userName;
+          let classname = sender === myUsername ? "sent" : "recieve";
           return (
             <div key={index} className="chat-message">
-              <div className="chat-message-header">
-                <p>{m.sender.username}</p>
-              </div>
-              <div className="message-content">
-                <div className="message-text">{m.text}</div>
+              <div className={classname}>
+                <div className={`message   ${classname}-color `}>
+                  <p>{m.text}</p>
+                </div>
               </div>
             </div>
           );
