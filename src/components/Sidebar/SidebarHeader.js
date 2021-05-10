@@ -1,5 +1,4 @@
 import React from "react";
-import { IconGroup } from "semantic-ui-react";
 import { useAuth } from "../../contexts/AuthProvider";
 import { useChatContext } from "../../contexts/ChatProvider";
 

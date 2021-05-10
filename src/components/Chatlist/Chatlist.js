@@ -1,11 +1,9 @@
 import React from "react";
-import { useAuth } from "../../contexts/AuthProvider";
 import { useChatContext } from "../../contexts/ChatProvider";
 import { notMe } from "../../helpers";
 
 function Chatlist() {
   const { myChats, selectedChat, selectChat, chatConfig } = useChatContext();
-  const { currentUser } = useAuth();
 
   return (
     <>
@@ -19,11 +17,9 @@ function Chatlist() {
                 className={`chat-list-item ${
                   selectedChat?.id === chat.id ? "selected-chat-item" : ""
                 } `}
+                onClick={() => selectChat(chat)}
               >
-                <div
-                  className="chat-list-item-content"
-                  onClick={() => selectChat(chat)}
-                >
+                <div className="chat-list-item-content">
                   <p>{notMeUserName}</p>
                 </div>
               </div>

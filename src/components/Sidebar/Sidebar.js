@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Loader } from "semantic-ui-react";
 import { useChatContext } from "../../contexts/ChatProvider";
 import Chatlist from "../Chatlist/Chatlist";
@@ -7,11 +7,6 @@ import SidebarHeader from "./SidebarHeader";
 
 function Sidebar() {
   const { myChats } = useChatContext();
-
-  useEffect(() => {
-    console.log(myChats);
-    return () => {};
-  }, [myChats]);
 
   return (
     <div className="left-rail">

@@ -17,7 +17,6 @@ function ChatProvider({ children }) {
   const { currentUser } = useAuth();
 
   useEffect(() => {
-    console.log(selectedChat);
     db.collection("chatUsers")
       .doc(currentUser.uid)
       .onSnapshot((snap) => {
@@ -38,8 +37,8 @@ function ChatProvider({ children }) {
 
   const selectChat = (chat) => {
     console.log(chat);
+    setselectedChat({ ...chat, messages: null });
     const callback = (chatID, messages) => {
-      console.log(messages);
       setselectedChat({ ...chat, messages: messages });
     };
     getMessages(chatConfig, chat.id, callback);

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { ChatEngineWrapper, getChats, Socket } from "react-chat-engine";
-import { useAuth } from "../../contexts/AuthProvider";
 import { useChatContext } from "../../contexts/ChatProvider";
 import Conversation from "../Conversation/Conversation";
 import Sidebar from "../Sidebar/Sidebar";
@@ -15,7 +14,6 @@ function Dashboard() {
   } = useChatContext();
 
   useEffect(() => {
-    // console.log(chatConfig);
     return () => {};
   }, [chatConfig]);
 

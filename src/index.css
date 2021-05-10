@@ -50,7 +50,7 @@ code {
   height: 75px;
   width: 100%;
   padding: 10px;
-
+  cursor: pointer;
   align-items: center;
   box-shadow: 0px 0px 2px black;
   justify-content: space-between;
@@ -58,7 +58,6 @@ code {
 .chat-list-item-content {
   flex: 1;
   display: flex;
-  cursor: pointer;
   color: #f2f2f2;
   align-items: center;
   justify-content: flex-start;
