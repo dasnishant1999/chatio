@@ -34,6 +34,8 @@ function SignUp() {
     <div className="sign-up">
       <form onSubmit={handleSubmit}>
         <h1>Log In</h1>
+        <p>user1:test1@gmail.com and pass:123456</p>
+        <p>user2:test2@gmail.com and pass:123456</p>
         {error && <div className="error">{error}</div>}
         <p className="details">Email</p>
         <input type="text" ref={emailRef} />
