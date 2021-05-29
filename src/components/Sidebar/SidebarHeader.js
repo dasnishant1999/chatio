@@ -10,7 +10,7 @@ function SidebarHeader() {
     <div className="left-rail-header">
       <div className="current-username">@{chatConfig.userName}</div>
       <button
-        style={{ marginLeft: "auto", color: "white", backgroundColor: "red" }}
+        className='logout-button'
         onClick={logout}
       >
         Logout

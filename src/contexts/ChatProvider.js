@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { newChat, getMessages } from "react-chat-engine";
+import { getMessages } from "react-chat-engine";
 import { db } from "../config/firebase";
 import { useAuth } from "./AuthProvider";
 
@@ -27,13 +27,7 @@ function ChatProvider({ children }) {
         });
       });
     return () => {};
-  }, [currentUser.uid, selectedChat]);
-
-  const createNewChat = () => {
-    const chatObject = { title: "Chat Title" };
-    const callback = (data) => console.log(data);
-    newChat(chatConfig, chatObject, callback);
-  };
+  }, [currentUser]);
 
   const selectChat = (chat) => {
     console.log(chat);
@@ -51,7 +45,6 @@ function ChatProvider({ children }) {
     setchatConfig,
     selectedChat,
     setselectedChat,
-    createNewChat,
     selectChat,
   };
 

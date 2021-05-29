@@ -41,7 +41,6 @@ function CreateAccountModal() {
 
       setOpen(false);
     } catch (error) {
-      console.log(error);
       setError("There is no such user");
     }
   };

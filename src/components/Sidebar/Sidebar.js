@@ -1,7 +1,7 @@
 import React from "react";
 import { Loader } from "semantic-ui-react";
 import { useChatContext } from "../../contexts/ChatProvider";
-import Chatlist from "../Chatlist/Chatlist";
+import Chatlist from "./Chatlist";
 import CreateAccountModal from "./CreateAccountModal";
 import SidebarHeader from "./SidebarHeader";
 
