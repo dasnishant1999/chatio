@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Loader } from "semantic-ui-react";
 import { useChatContext } from "../../contexts/ChatProvider";
 import { useScrollToBottom } from "../../hooks/useScrollToBottom";
@@ -6,7 +6,14 @@ import { useScrollToBottom } from "../../hooks/useScrollToBottom";
 function MessageList() {
   const { selectedChat, chatConfig } = useChatContext();
 
-  useScrollToBottom(selectedChat, "chat-messages");
+  // useScrollToBottom(selectedChat, "chat-messages");
+
+  const AlwaysScrollToBottom = () => {
+    const elementRef = useRef();
+    console.log('scroll')
+    useEffect(() => elementRef.current.scrollIntoView());
+    return <div ref={elementRef} />;
+  };
 
   return (
     <div className="chat-messages">
@@ -17,13 +24,15 @@ function MessageList() {
             const myUsername = chatConfig.userName;
             let classname = sender === myUsername ? "sent" : "recieve";
             return (
-              <div key={index} className="chat-message">
-                <div className={classname}>
-                  <div className={`message   ${classname}-color `}>
-                    <p>{m.text}</p>
+              <>
+                <div key={index} className="chat-message">
+                  <div className={classname}>
+                    <div className={`message   ${classname}-color `}>
+                      <p>{m.text}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </>
             );
           })
         ) : (
@@ -32,6 +41,7 @@ function MessageList() {
       ) : (
         <Loader active size="large" />
       )}
+      <AlwaysScrollToBottom />
     </div>
   );
 }
