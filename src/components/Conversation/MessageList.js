@@ -10,7 +10,7 @@ function MessageList() {
 
   const AlwaysScrollToBottom = () => {
     const elementRef = useRef();
-    console.log('scroll')
+    console.log("scroll");
     useEffect(() => elementRef.current.scrollIntoView());
     return <div ref={elementRef} />;
   };
@@ -39,7 +39,7 @@ function MessageList() {
           <div className="no-messages-yet">No messages yet</div>
         )
       ) : (
-        <Loader active size="large" />
+        <Loader active size="large" inline="centered" />
       )}
       <AlwaysScrollToBottom />
     </div>
